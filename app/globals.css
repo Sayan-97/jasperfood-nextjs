@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --foreground: #3a3a3a;
+    --primary: #ff8d00;
+  }
+}
+
+@layer base {
+  * {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply w-full min-h-screen bg-white text-foreground text-base font-light flex flex-col overflow-x-hidden;
+  }
+
+  main {
+    @apply flex-grow;
+  }
+
+  h3 {
+    @apply text-[2rem] lg:text-5xl text-center leading-tight;
+  }
+
+  h4 {
+    @apply text-2xl lg:text-[2rem] text-black;
+  }
+}
