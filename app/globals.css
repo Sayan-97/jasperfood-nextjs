@@ -11,11 +11,11 @@
 
 @layer base {
   * {
-    @apply scroll-smooth;
+    @apply scroll-smooth overflow-x-hidden;
   }
 
   body {
-    @apply w-full min-h-screen bg-white text-foreground text-base font-light flex flex-col overflow-x-hidden;
+    @apply w-full min-h-screen bg-white text-foreground text-base font-light flex flex-col;
   }
 
   main {

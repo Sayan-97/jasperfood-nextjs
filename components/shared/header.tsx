@@ -154,9 +154,9 @@ export default function Header() {
 
   return (
     <header className="relative w-full py-2 z-30">
-      <nav className="container flex items-center justify-between max-md:gap-8">
+      <nav className="container flex items-center justify-between">
         {/* Navbar Logo */}
-        <div className="flex items-center">
+        <div className="max-md:w-[80%] flex items-center">
           <Image
             src="/imgs/AppLogo.png"
             alt="img"
@@ -179,14 +179,14 @@ export default function Header() {
         </div>
       </nav>
       {navOpen && (
-        <div className="fixed w-full h-screen bg-black bg-opacity-30 top-0 flex justify-end"></div>
+        <div className="fixed w-full h-screen bg-black bg-opacity-30 top-0 flex justify-end z-30 overflow-hidden"></div>
       )}
       <div
         ref={navRef}
-        className={`fixed top-0 right-0 w-[68%] h-screen bg-white border-l shadow-md trandform ${
+        className={`fixed top-0 right-0 w-[68%] h-screen bg-white border-l shadow-md trandform z-40 ${
           navOpen
-            ? "translate-x-0 scale-x-100 origin-right transition-all ease-in-out duration-500"
-            : "translate-x-[100%] scale-x-0 origin-right transition-all ease-in-out duration-500"
+            ? "translate-x-0 transition-all ease-in-out duration-300"
+            : "translate-x-[100%] transition-all ease-in-out duration-300"
         }`}
       >
         <div className="container">
