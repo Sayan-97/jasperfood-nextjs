@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { bookmanFont } from "./fonts";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import Header from "@/components/shared/header";
 import Footer from "@/components/shared/footer";
@@ -21,6 +22,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );

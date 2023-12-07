@@ -47,25 +47,25 @@ export default function ContactUs() {
           <form className="w-full lg:w-1/2 p-12 bg-[#F5F5F5] rounded-2xl space-y-6">
             <div className="grid gap-1">
               <label htmlFor="name">Full Name</label>
-              <input type="text" id="name" autoComplete="on"/>
+              <input type="text" id="name" autoComplete="on" />
             </div>
             <div className="flex max-lg:flex-col gap-6">
               <div className="w-full grid gap-1">
                 <label htmlFor="email">Email</label>
-                <input type="text" id="email" autoComplete="on"/>
+                <input type="text" id="email" autoComplete="on" />
               </div>
               <div className="w-full grid gap-1">
                 <label htmlFor="phn">Phone Number</label>
-                <input type="text" id="phn" autoComplete="on"/>
+                <input type="text" id="phn" autoComplete="on" />
               </div>
             </div>
             <div className="grid gap-1">
               <label htmlFor="sub">Select Subject?</label>
-              <input type="text" id="sub" autoComplete="on"/>
+              <input type="text" id="sub" autoComplete="on" />
             </div>
             <div className="grid gap-1">
               <label htmlFor="msg">Message</label>
-              <input type="text" id="msg" autoComplete="on"/>
+              <input type="text" id="msg" autoComplete="on" />
             </div>
           </form>
         </div>
