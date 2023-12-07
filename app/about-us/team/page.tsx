@@ -10,7 +10,7 @@ export default function Teams() {
         chefs, who play an indispensable role in our operations. These
         professionals diligently track market trends, gather feedback, and
         conduct research through various food channels to gain insights into
-        people's eating habits. Their goal is to enhance our clients' culinary
+        people&apos;s eating habits. Their goal is to enhance our clients&apos; culinary
         experiences and exceed their expectations.
         <br />
         <br />

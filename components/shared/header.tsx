@@ -3,19 +3,22 @@
 import Image from "next/image";
 import { monotypeFont } from "@/app/fonts";
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 
 export default function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(null);
-  const handleDropdownOpen = (index: any) => {
-    setDropdownOpen(dropdownOpen === index ? null : index);
-  };
+  const handleDropdownOpen = useCallback(
+    (index: any) => {
+      setDropdownOpen(dropdownOpen === index ? null : index);
+    },
+    [dropdownOpen]
+  );
   const dropdownRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event: any) => {
-      if (dropdownRef.current && !dropdownRef?.current?.contains(event?.target)) {
-        handleDropdownOpen(null); // Set dropdownOpen to null (or false) to close the dropdown
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        handleDropdownOpen(null);
       }
     };
 

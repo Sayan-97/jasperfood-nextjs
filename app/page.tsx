@@ -23,7 +23,7 @@ export default function Home() {
               Welcome to Jasper Food Manufacturers Private Limited (JFMPL), your
               trusted destination for the finest frozen value added food
               products and delectable culinary creations. Your cravings deserve
-              the best - and that's exactly what we offer.
+              the best - and that&apos;s exactly what we offer.
             </p>
             <Button>EXPLORE</Button>
           </div>
