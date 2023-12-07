@@ -10,8 +10,8 @@ export default function Teams() {
         chefs, who play an indispensable role in our operations. These
         professionals diligently track market trends, gather feedback, and
         conduct research through various food channels to gain insights into
-        people&apos;s eating habits. Their goal is to enhance our clients&apos; culinary
-        experiences and exceed their expectations.
+        people&apos;s eating habits. Their goal is to enhance our clients&apos;
+        culinary experiences and exceed their expectations.
         <br />
         <br />
         We allocate significant investments toward refining and developing
@@ -20,7 +20,7 @@ export default function Teams() {
         standardizing procedures and scaling up these ideas to ensure
         consistency and reliability. Our unwavering commitment to quality,
         facilitated by the dedication of our staff and efficient processes,
-        ensures that our products not only meet but surpass our clients'
+        ensures that our products not only meet but surpass our clients&apos;
         expectations.
       </p>
     </div>
