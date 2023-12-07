@@ -22,6 +22,7 @@ export default function Veg() {
         style={{
           background: `url(${"/imgs/product-veg-bg.png"})`,
           backgroundSize: "cover",
+          backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
       >

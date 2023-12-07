@@ -154,9 +154,9 @@ export default function Header() {
 
   return (
     <header className="relative w-full py-2 z-30">
-      <nav className="container flex items-center justify-between">
+      <nav className="container flex items-center justify-between max-md:gap-8">
         {/* Navbar Logo */}
-        <div className="max-md:w-[80%] flex items-center">
+        <div className="flex items-center">
           <Image
             src="/imgs/AppLogo.png"
             alt="img"
@@ -179,21 +179,21 @@ export default function Header() {
         </div>
       </nav>
       {navOpen && (
-        <div className="fixed w-full h-screen bg-black bg-opacity-30 top-0 flex justify-end z-30 overflow-hidden"></div>
+        <div className="fixed w-full h-screen bg-black bg-opacity-30 top-0 flex justify-end"></div>
       )}
       <div
         ref={navRef}
-        className={`fixed top-0 right-0 w-[68%] h-screen bg-white border-l shadow-md trandform z-40 ${
+        className={`fixed top-0 right-0 w-[68%] h-screen bg-white border-l shadow-md trandform ${
           navOpen
-            ? "translate-x-0 transition-all ease-in-out duration-300"
-            : "translate-x-[100%] transition-all ease-in-out duration-300"
+            ? "translate-x-0 transition-all ease-in-out duration-500"
+            : "translate-x-[100%] transition-all ease-in-out duration-500"
         }`}
       >
         <div className="container">
           <div className="py-6 md:py-10 flex justify-end text-2xl">
             <IoClose onClick={() => handleNavOpen()} />
           </div>
-          <NavLinks />
+          {navOpen && <NavLinks />}
         </div>
       </div>
     </header>

@@ -8,6 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           style={{
             background: `url(${"/imgs/food-and-safety-bg.png"})`,
             backgroundSize: "cover",
+            backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
         >

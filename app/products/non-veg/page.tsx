@@ -22,6 +22,7 @@ export default function NonVeg() {
         style={{
           background: `url(${"/imgs/product-non-veg-bg.png"})`,
           backgroundSize: "cover",
+          backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
       >
