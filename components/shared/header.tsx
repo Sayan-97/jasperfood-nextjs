@@ -7,6 +7,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 
 export default function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(null);
+  const [activeMenu, setActiveMenu] = useState("Home");
   const handleDropdownOpen = useCallback(
     (index: any) => {
       setDropdownOpen(dropdownOpen === index ? null : index);
@@ -72,8 +73,12 @@ export default function Header() {
           item.dropdown ? (
             <div key={index} className="relative">
               <button
-                className="flex items-center gap-1"
-                onClick={() => handleDropdownOpen(index)}
+                className={`flex items-center gap-1 ${
+                  activeMenu === item.label && "text-primary"
+                }`}
+                onClick={() => {
+                  handleDropdownOpen(index), setActiveMenu(item.label);
+                }}
               >
                 {item.label}{" "}
                 <Image
@@ -89,10 +94,14 @@ export default function Header() {
               {dropdownOpen === index && (
                 <ul
                   ref={dropdownRef}
-                  className="absolute right-0 bg-white mt-4 border shadow flex flex-col gap-4 w-48 p-2 text-end"
+                  className="absolute right-0 bg-white mt-4 border shadow rounded-xl flex flex-col gap-4 w-48 p-4 text-end"
                 >
                   {item.dropdown.map((item, index) => (
-                    <Link key={index} href={item.link}>
+                    <Link
+                      key={index}
+                      href={item.link}
+                      onClick={() => handleDropdownOpen(null)}
+                    >
                       {item.label}
                     </Link>
                   ))}
@@ -100,7 +109,12 @@ export default function Header() {
               )}
             </div>
           ) : (
-            <Link key={index} href={item.link}>
+            <Link
+              key={index}
+              href={item.link}
+              onClick={() => setActiveMenu(item.label)}
+              className={`${activeMenu === item.label && "text-primary"}`}
+            >
               {item.label}
             </Link>
           )

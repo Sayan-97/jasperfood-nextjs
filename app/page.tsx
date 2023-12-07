@@ -6,14 +6,15 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section
-        style={{
-          background: `url(${"/imgs/Hero-BG.png"})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <div className="py-16 lg:py-32 bg-black bg-opacity-[66%]">
+      <section className="relative">
+        <Image
+          src="/imgs/Hero-BG.png"
+          alt="img"
+          fill
+          priority={true}
+          className="absolute object-cover"
+        />
+        <div className="relative py-16 lg:py-32 bg-black bg-opacity-[66%]">
           <div className="container grid justify-items-center gap-8 text-center text-white">
             <h1 className="text-2xl lg:text-[3.75rem] leading-snug">
               JFMPL: Where Excellence
@@ -55,14 +56,15 @@ export default function Home() {
       </section>
 
       {/* Banner */}
-      <section
-        style={{
-          background: `url(${"/imgs/Banner-BG.png"})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <div className="py-16 lg:py-32 bg-black bg-opacity-[66%]">
+      <section className="relative">
+        <Image
+          src="/imgs/Banner-BG.png"
+          alt="img"
+          fill
+          priority={true}
+          className="absolute object-cover"
+        />
+        <div className="relative py-16 lg:py-32 bg-black bg-opacity-[66%]">
           <div className="container flex justify-center text-center text-white">
             <h5 className="w-full lg:w-[70%] text-base lg:text-2xl leading-loose lg:leading-loose">
               As a highly trusted organization, we specialize in crafting a
