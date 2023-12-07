@@ -17,7 +17,10 @@ export default function Header() {
 
   useEffect(() => {
     const handleClickOutside = (event: any) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (
+        dropdownRef.current &&
+        !(dropdownRef.current as HTMLDivElement).contains(event.target)
+      ) {
         handleDropdownOpen(null);
       }
     };
