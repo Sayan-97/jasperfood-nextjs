@@ -15,7 +15,7 @@
   }
 
   html {
-    @apply overflow-x-hidden
+    @apply overflow-x-hidden;
   }
 
   body {
@@ -36,5 +36,13 @@
 
   h4 {
     @apply text-2xl lg:text-[2rem] text-black;
+  }
+
+  label {
+    @apply text-black font-semibold text-sm
+  }
+
+  input {
+    @apply bg-transparent p-2 border-b border-[#8D8D8D] outline-none;
   }
 }
