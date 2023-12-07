@@ -4,17 +4,41 @@ import Image from "next/image";
 import { monotypeFont } from "@/app/fonts";
 import Link from "next/link";
 import { useState, useRef, useEffect, useCallback } from "react";
+import { FiMenu } from "react-icons/fi";
+import { IoClose } from "react-icons/io5";
 
 export default function Header() {
+  const navRef = useRef(null);
+  const dropdownRef = useRef(null);
+  const [navOpen, setNavOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const [activeMenu, setActiveMenu] = useState("Home");
+
+  const handleNavOpen = () => {
+    setNavOpen(!navOpen);
+  };
+
   const handleDropdownOpen = useCallback(
     (index: any) => {
       setDropdownOpen(dropdownOpen === index ? null : index);
     },
     [dropdownOpen]
   );
-  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if (
+        navRef.current &&
+        !(navRef.current as HTMLDivElement).contains(event.target)
+      ) {
+        setNavOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [navRef, setNavOpen]);
 
   useEffect(() => {
     const handleClickOutside = (event: any) => {
@@ -30,6 +54,7 @@ export default function Header() {
 
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [dropdownRef, handleDropdownOpen]);
+
   const links = [
     {
       label: "Home",
@@ -68,7 +93,7 @@ export default function Header() {
 
   function NavLinks() {
     return (
-      <ul className="flex items-center gap-8 text-black">
+      <ul className="flex max-lg:flex-col items-start lg:items-center gap-8 text-black">
         {links.map((item, index) =>
           item.dropdown ? (
             <div key={index} className="relative">
@@ -94,13 +119,15 @@ export default function Header() {
               {dropdownOpen === index && (
                 <ul
                   ref={dropdownRef}
-                  className="absolute right-0 bg-white mt-4 border shadow rounded-xl flex flex-col gap-4 w-48 p-4 text-end"
+                  className="lg:absolute right-0 lg:bg-white mt-4 lg:border lg:shadow rounded-xl flex flex-col gap-4 lg:w-48 lg:p-4 lg:text-end"
                 >
                   {item.dropdown.map((item, index) => (
                     <Link
                       key={index}
                       href={item.link}
-                      onClick={() => handleDropdownOpen(null)}
+                      onClick={() => {
+                        handleDropdownOpen(null), setNavOpen(false);
+                      }}
                     >
                       {item.label}
                     </Link>
@@ -112,7 +139,9 @@ export default function Header() {
             <Link
               key={index}
               href={item.link}
-              onClick={() => setActiveMenu(item.label)}
+              onClick={() => {
+                setActiveMenu(item.label), setNavOpen(false);
+              }}
               className={`${activeMenu === item.label && "text-primary"}`}
             >
               {item.label}
@@ -124,8 +153,8 @@ export default function Header() {
   }
 
   return (
-    <header className="relative w-full py-2">
-      <nav className="container flex items-center justify-between">
+    <header className="relative w-full py-2 z-30">
+      <nav className="container flex items-center justify-between max-md:gap-8">
         {/* Navbar Logo */}
         <div className="flex items-center">
           <Image
@@ -145,7 +174,28 @@ export default function Header() {
         <div className="max-lg:hidden">
           <NavLinks />
         </div>
+        <div className="lg:hidden text-2xl">
+          <FiMenu onClick={() => handleNavOpen()} />
+        </div>
       </nav>
+      {navOpen && (
+        <div className="fixed w-full h-screen bg-black bg-opacity-30 top-0 flex justify-end"></div>
+      )}
+      <div
+        ref={navRef}
+        className={`fixed top-0 right-0 w-[68%] h-screen bg-white border-l shadow-md trandform ${
+          navOpen
+            ? "translate-x-0 scale-x-100 origin-right transition-all ease-in-out duration-500"
+            : "translate-x-[100%] scale-x-0 origin-right transition-all ease-in-out duration-500"
+        }`}
+      >
+        <div className="container">
+          <div className="py-6 md:py-10 flex justify-end text-2xl">
+            <IoClose onClick={() => handleNavOpen()} />
+          </div>
+          <NavLinks />
+        </div>
+      </div>
     </header>
   );
 }
