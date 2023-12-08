@@ -38,8 +38,8 @@ export default function ContactUs() {
               <h6 className="text-xl font-semibold">Plant Address</h6>
               <p>
                 {" "}
-                Building No.: 68 - 69, Pragati Vihar Industrial Area, Sector-59,
-                Ballabgarh, Faridabad - 121004, Haryana, INDIA
+                Building No.: 68 - 69, Pragati Vihar Industrial Area, Sector -
+                59, Ballabgarh, Faridabad - 121004, Haryana, INDIA
               </p>
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function ContactUs() {
               height={46.2}
               className="w-10 h-10"
             />
-            <h6 className="text-xl font-semibold">Plant Quarries</h6>
+            <h6 className="text-xl font-semibold">Plant Queries</h6>
             <p>Shahid Khan</p>
             <p>Plant Head</p>
             <p>planthead@jaspergroup.in</p>
