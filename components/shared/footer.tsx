@@ -56,7 +56,7 @@ export default function Footer() {
         <div className="space-y-6">
           <div className="flex items-center gap-6 text-2xl">
             {socials.map((item, index) => (
-              <Link aria-valuetext={item.link} key={index} href={item.link}>
+              <Link aria-valuetext={item.label} key={index} href={item.link}>
                 <item.icon />
               </Link>
             ))}
