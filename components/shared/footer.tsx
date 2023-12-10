@@ -26,8 +26,8 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="container py-12 lg:py-20">
-      <div className="pt-4 border-t-2 border-primary space-y-6">
+    <footer className="container py-8">
+      <div className="pt-4 border-t-2 border-primary space-y-16">
         <div className="flex items-center justify-between flex-wrap max-lg:gap-8">
           {/* Footer Logo */}
           <div className="flex items-center">

@@ -1,12 +1,17 @@
 "use client";
 
-import Image from "next/image";
-import { monotypeFont } from "@/app/fonts";
-import Link from "next/link";
 import { useState, useRef, useEffect, useCallback } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { monotypeFont } from "@/app/fonts";
 import { FiMenu } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
+import { IoIosArrowDown } from "react-icons/io";
+import { navbarLinks } from "@/constants";
+// Jasper Logo
+import JasperFoodLogo from "@/public/imgs/AppLogo.png";
 
+// Header()
 export default function Header() {
   const navRef = useRef(null);
   const dropdownRef = useRef(null);
@@ -55,46 +60,10 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [dropdownRef, handleDropdownOpen]);
 
-  const links = [
-    {
-      label: "Home",
-      link: "/",
-    },
-    {
-      label: "About Us",
-      dropdown: [
-        { label: "Profile", link: "/about-us" },
-        { label: "Team", link: "/about-us/team" },
-        { label: "Why Us", link: "/about-us/why-us" },
-      ],
-    },
-    {
-      label: "Food Safety & Quality",
-      dropdown: [
-        { label: "Certifications", link: "/food-and-safety" },
-        {
-          label: "Quality Assurance",
-          link: "/food-and-safety/quality-assurance",
-        },
-      ],
-    },
-    {
-      label: "Products",
-      dropdown: [
-        { label: "Veg", link: "/products/veg" },
-        { label: "Non Veg", link: "/products/non-veg" },
-      ],
-    },
-    {
-      label: "Contact Us",
-      link: "/contact-us",
-    },
-  ];
-
   function NavLinks() {
     return (
-      <ul className="flex max-lg:flex-col items-start lg:items-center gap-8 text-black">
-        {links.map((item, index) =>
+      <div className="flex max-lg:flex-col items-start lg:items-center gap-8 text-black">
+        {navbarLinks.map((item, index) =>
           item.dropdown ? (
             <div key={index} className="relative">
               <button
@@ -106,18 +75,12 @@ export default function Header() {
                 }}
               >
                 {item.label}{" "}
-                <Image
-                  src="/svgs/icon-down.svg"
-                  alt="img"
-                  width={24}
-                  height={24}
-                  className={`${
-                    dropdownOpen === index && "transform rotate-180"
-                  } w-5 h-5`}
+                <IoIosArrowDown
+                  className={dropdownOpen === index && "transform rotate-180"}
                 />
               </button>
               {dropdownOpen === index && (
-                <ul
+                <div
                   ref={dropdownRef}
                   className="lg:absolute right-0 lg:bg-white mt-4 lg:border lg:shadow rounded-xl flex flex-col gap-4 lg:w-48 lg:p-4 lg:text-end"
                 >
@@ -132,7 +95,7 @@ export default function Header() {
                       {item.label}
                     </Link>
                   ))}
-                </ul>
+                </div>
               )}
             </div>
           ) : (
@@ -148,7 +111,7 @@ export default function Header() {
             </Link>
           )
         )}
-      </ul>
+      </div>
     );
   }
 
@@ -158,22 +121,23 @@ export default function Header() {
         {/* Navbar Logo */}
         <div className="flex items-center">
           <Image
-            src="/imgs/AppLogo.png"
+            src={JasperFoodLogo}
             alt="img"
-            width={126}
-            height={111}
-            className="w-20 md:w-24"
+            priority
+            className="w-20 lg:w-28"
           />
           <h2
             className={`${monotypeFont.className} text-lg lg:text-2xl text-[#4946BE] font-normal`}
           >
             Jasper Food Manufacturers Private Limited{" "}
-            <span className="text-lg lg:text-2xl">(JFMPL)</span>
+            <span className="lg:text-[26px]">(JFMPL)</span>
           </h2>
         </div>
+
         <div className="max-lg:hidden">
           <NavLinks />
         </div>
+
         <div className="lg:hidden text-2xl">
           <FiMenu onClick={() => handleNavOpen()} />
         </div>

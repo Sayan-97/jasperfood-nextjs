@@ -1,6 +1,20 @@
+import Image from "next/image";
 import Button from "@/components/ui/button";
 import { aboutUs } from "@/constants";
-import Image from "next/image";
+// Images
+import HeroBGImage from "@/public/imgs/Hero-BG.png";
+import BannerBGImage from "@/public/imgs/Banner-BG.png";
+
+import ManufacturingProcess from "@/public/imgs/manufacturing-process.png";
+import CuttingEdgeTechnology from "@/public/imgs/cutting-edge-technology.png";
+import HighTechMachinary from "@/public/imgs/high-tech-machinery.png";
+
+import {
+  FaTwitter,
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedin,
+} from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -8,10 +22,10 @@ export default function Home() {
       {/* Hero */}
       <section className="relative">
         <Image
-          src="/imgs/Hero-BG.png"
+          src={HeroBGImage}
           alt="img"
           fill
-          priority={true}
+          priority
           className="absolute object-cover"
         />
         <div className="relative py-16 lg:py-32 bg-black bg-opacity-[66%]">
@@ -34,19 +48,14 @@ export default function Home() {
       {/* About Us */}
       <section className="container py-12 lg:py-20 flex flex-col items-center gap-12 lg:gap-20">
         <h3>About Us</h3>
-        <div className="grid lg:grid-cols-3 gap-12 lg:gap-20">
+        <div className="flex gap-12 flex-wrap">
           {aboutUs.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col items-center gap-6 text-center"
+              className="w-full lg:w-[calc(33.333333%-48px)] flex flex-col items-center gap-6 text-center"
             >
               <div className="border-2 border-primary p-4 rounded-full">
-                <Image
-                  src={item.image}
-                  alt="img"
-                  width={157.526}
-                  height={157.526}
-                />
+                <Image src={item.image} alt="img" />
               </div>
               <h4>{item.title}</h4>
               <p className="text-lg">{item.des}</p>
@@ -58,10 +67,9 @@ export default function Home() {
       {/* Banner */}
       <section className="relative">
         <Image
-          src="/imgs/Banner-BG.png"
+          src={BannerBGImage}
           alt="img"
           fill
-          priority={true}
           className="absolute object-cover"
         />
         <div className="relative py-16 lg:py-32 bg-black bg-opacity-[66%]">
@@ -96,12 +104,7 @@ export default function Home() {
                 best quality frozen products.
               </p>
             </div>
-            <Image
-              src="/imgs/manufacturing-process.png"
-              alt="img"
-              width={738}
-              height={441}
-            />
+            <Image src={ManufacturingProcess} alt="img" />
           </div>
 
           <div className="flex max-lg:flex-col-reverse flex-row-reverse items-center justify-between gap-8 lg:gap-16">
@@ -122,12 +125,7 @@ export default function Home() {
                 by improving energy efficiency and water conservation.
               </p>
             </div>
-            <Image
-              src="/imgs/cutting-edge-technology.png"
-              alt="img"
-              width={738}
-              height={441}
-            />
+            <Image src={CuttingEdgeTechnology} alt="img" />
           </div>
 
           <div className="flex max-lg:flex-col-reverse items-center justify-between gap-8 lg:gap-16">
@@ -152,12 +150,7 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-            <Image
-              src="/imgs/manufacturing-process.png"
-              alt="img"
-              width={738}
-              height={441}
-            />
+            <Image src={HighTechMachinary} alt="img" />
           </div>
         </div>
       </section>
@@ -167,19 +160,19 @@ export default function Home() {
         <h3>Social</h3>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-20">
           <div className="grid justify-items-center gap-4">
-            <Image src="/svgs/twitter.svg" alt="img" width={48} height={48} />
+            <FaTwitter className="text-4xl lg:text-5xl text-primary" />
             <p className="text-2xl">Twitter</p>
           </div>
           <div className="grid justify-items-center gap-4">
-            <Image src="/svgs/facebook.svg" alt="img" width={48} height={48} />
+            <FaFacebookF className="text-4xl lg:text-5xl text-primary" />
             <p className="text-2xl">Facebook</p>
           </div>
           <div className="grid justify-items-center gap-4">
-            <Image src="/svgs/instagram.svg" alt="img" width={48} height={48} />
+            <FaInstagram className="text-4xl lg:text-5xl text-primary" />
             <p className="text-2xl">Instagram</p>
           </div>
           <div className="grid justify-items-center gap-4">
-            <Image src="/svgs/linkedin.svg" alt="img" width={48} height={48} />
+            <FaLinkedin className="text-4xl lg:text-5xl text-primary" />
             <p className="text-2xl">Linkedin</p>
           </div>
         </div>
