@@ -19,10 +19,10 @@ export default function Footer() {
   ];
 
   const socials = [
-    { icon: AiFillFacebook, link: "/" },
-    { icon: AiOutlineTwitter, link: "/" },
-    { icon: AiFillInstagram, link: "/" },
-    { icon: AiFillYoutube, link: "/" },
+    { label: "Facebook", icon: AiFillFacebook, link: "/" },
+    { label: "Twitter", icon: AiOutlineTwitter, link: "/" },
+    { label: "Instagram", icon: AiFillInstagram, link: "/" },
+    { label: "Youtube", icon: AiFillYoutube, link: "/" },
   ];
 
   return (
@@ -56,7 +56,7 @@ export default function Footer() {
         <div className="space-y-6">
           <div className="flex items-center gap-6 text-2xl">
             {socials.map((item, index) => (
-              <Link key={index} href={item.link}>
+              <Link aria-valuetext={item.link} key={index} href={item.link}>
                 <item.icon />
               </Link>
             ))}
