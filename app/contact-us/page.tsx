@@ -92,7 +92,7 @@ export default function ContactUs() {
               height={46.2}
               className="w-10 h-10"
             />
-            <h6 className="text-xl font-semibold">Plant Queries</h6>
+            <h6 className="text-xl font-semibold">Plant Enquiries</h6>
             <p>Shahid Khan</p>
             <p>Plant Head</p>
             <p>planthead@jaspergroup.in</p>
