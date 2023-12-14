@@ -63,7 +63,7 @@ export default function Footer() {
           </div>
           <div className="w-full md:w-[30%] py-[0.5px] bg-black"></div>
           <p>
-            &copy; Copyright Jasper Food Manufacturers Private Limited (JMFL)
+            &copy; Copyright Jasper Food Manufacturers Private Limited (JFMPL)
             2023, All right reserved.
           </p>
         </div>
